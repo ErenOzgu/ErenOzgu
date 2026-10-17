@@ -1,7 +1,7 @@
-<h1 align="center">Merhaba, ben Eren 👋</h1>
+<h1 align="center">Hi, I'm Eren 👋</h1>
 
 <p align="center">
-  <b>Test, entegrasyon ve DevOps</b> · legacy sistemlerin modernizasyonu · otomasyon ve yapay zekâ
+  <b>Test, integration and DevOps</b> · legacy system modernization · automation and AI
 </p>
 
 <p align="center">
@@ -10,24 +10,24 @@
   </a>
 </p>
 
-## Hakkımda
+## About me
 
-- Savunma sanayiinde test, entegrasyon ve DevOps alanında çalışıyorum. Şu an dijital dönüşüm ekibinde şirket içi süreçleri ve yapıları iyileştirmeye odaklanıyorum.
-- Eski Python 2.7 / Django kod tabanlarını modernleştirme, CI/CD ve test otomasyonu, yapay zekâ destekli otomasyon üzerinde çalışıyorum.
-- Teknik yönetim ile uygulamayı bir arada yürütmeyi seviyorum: yönetim kurulu düzeyinde paydaşlarla çalışmak ve işi sahada teslim etmek.
-- Çalışma dilleri: Türkçe, İngilizce (ileri düzey).
+- I work in test, integration and DevOps in the defense industry. Right now I focus on improving internal processes and structures in a digital transformation team.
+- I work on modernizing legacy Python 2.7 / Django codebases, CI/CD and test automation, and AI-assisted automation.
+- I like combining technical leadership with hands-on delivery: working with board-level stakeholders and shipping the work in the field.
+- Working languages: Turkish, English (upper advanced).
 
-## Öne çıkan projeler
+## Featured projects
 
-| Proje | Açıklama |
+| Project | Description |
 |---|---|
-| [**legacy-modernizer-mcp**](https://github.com/ErenOzgu/legacy-modernizer-mcp) | Eski Python 2 / Django projelerini tarayıp önceliklendiren ve geçiş planı çıkaran MCP sunucusu. 52 kural, salt okunur analiz, CI ile test edilir. |
-| [**Dev-Ops (RNVCS)**](https://github.com/ErenOzgu/Dev-Ops) | Asterisk tabanlı sesli haberleşme sistemi: sıfır bağımlılıklı Go servisleri, SIP/RTP motoru, PostgreSQL ve canary dağıtımlı CI/CD. Docker Compose ile tek komutta ayağa kalkar; gerçek PostgreSQL'e karşı uçtan uca testlerle GitHub Actions'ta doğrulanır. |
-| [**asterisk-exporter**](https://github.com/ErenOzgu/asterisk-exporter) | Asterisk Manager Interface'ten Prometheus metrikleri çıkaran, üçüncü taraf bağımlılığı olmayan Go exporter'ı. Grafana panosu ve test edilmiş alarm kuralları var; gerçek Asterisk 18 ve 20'ye karşı CI'da doğrulanır. |
-| [**asterisk-gcp-iac**](https://github.com/ErenOzgu/asterisk-gcp-iac) | Google Cloud üzerinde sertleştirilmiş Asterisk santrali için Terraform ve Ansible: yalnızca IAP üzerinden SSH, nftables, fail2ban, Prometheus metrikleri. CI, Terraform planını kimlik bilgisi olmadan çıkarıp kurallara karşı denetler ve Ansible rollerini gerçek Ubuntu 22.04 ve 24.04'te iki kez uygular. |
-| [**D-etud**](https://github.com/ErenOzgu/D-etud) | Öğrencilerin öğretmenlere soru sorduğu eğitim platformu: React arayüzü, Node.js/MongoDB API'si, JWT ve Socket.IO. |
+| [**legacy-modernizer-mcp**](https://github.com/ErenOzgu/legacy-modernizer-mcp) | An MCP server that scans legacy Python 2 / Django projects, ranks the findings and drafts a migration plan. 52 rules, read-only analysis, tested in CI. |
+| [**Dev-Ops (RNVCS)**](https://github.com/ErenOzgu/Dev-Ops) | An Asterisk-based voice communication system: zero-dependency Go services, a SIP/RTP engine, PostgreSQL and CI/CD with canary deployments. Starts with one Docker Compose command; verified on GitHub Actions with end-to-end tests against a real PostgreSQL. |
+| [**asterisk-exporter**](https://github.com/ErenOzgu/asterisk-exporter) | A Go exporter with no third-party dependencies that turns the Asterisk Manager Interface into Prometheus metrics. Comes with a Grafana dashboard and unit-tested alert rules; verified in CI against real Asterisk 18 and 20. |
+| [**asterisk-gcp-iac**](https://github.com/ErenOzgu/asterisk-gcp-iac) | Terraform and Ansible for a hardened Asterisk PBX on Google Cloud: SSH only through IAP, nftables, fail2ban, Prometheus metrics. CI builds the Terraform plan without credentials and checks it against policy rules, then applies the Ansible roles twice on real Ubuntu 22.04 and 24.04. |
+| [**D-etud**](https://github.com/ErenOzgu/D-etud) | An education platform where students ask teachers questions: React front end, Node.js/MongoDB API, JWT and Socket.IO. |
 
-## Araçlar
+## Tools
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white)
@@ -48,7 +48,7 @@
 ![Grafana](https://img.shields.io/badge/Grafana-F46800?logo=grafana&logoColor=white)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?logo=googlecloud&logoColor=white)
 
-## Şu an öğrendiklerim
+## Currently learning
 
-- Google Cloud ve bulut mimarisi
-- Yapay zekâ destekli otomasyon ve MCP ile araç geliştirme
+- Google Cloud and cloud architecture
+- AI-assisted automation and building tools with MCP
