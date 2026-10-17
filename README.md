@@ -22,7 +22,9 @@
 | Proje | Açıklama |
 |---|---|
 | [**legacy-modernizer-mcp**](https://github.com/ErenOzgu/legacy-modernizer-mcp) | Eski Python 2 / Django projelerini tarayıp önceliklendiren ve geçiş planı çıkaran MCP sunucusu. 52 kural, salt okunur analiz, CI ile test edilir. |
-| [**Dev-Ops (RNVCS)**](https://github.com/ErenOzgu/Dev-Ops) | Asterisk tabanlı sesli haberleşme sistemi: sıfır bağımlılıklı Go servisleri, SIP/RTP motoru, PostgreSQL ve canary dağıtımlı CI/CD. Gerçek PostgreSQL'e karşı uçtan uca testlerle GitHub Actions'ta doğrulanır. |
+| [**Dev-Ops (RNVCS)**](https://github.com/ErenOzgu/Dev-Ops) | Asterisk tabanlı sesli haberleşme sistemi: sıfır bağımlılıklı Go servisleri, SIP/RTP motoru, PostgreSQL ve canary dağıtımlı CI/CD. Docker Compose ile tek komutta ayağa kalkar; gerçek PostgreSQL'e karşı uçtan uca testlerle GitHub Actions'ta doğrulanır. |
+| [**asterisk-exporter**](https://github.com/ErenOzgu/asterisk-exporter) | Asterisk Manager Interface'ten Prometheus metrikleri çıkaran, üçüncü taraf bağımlılığı olmayan Go exporter'ı. Grafana panosu ve test edilmiş alarm kuralları var; gerçek Asterisk 18 ve 20'ye karşı CI'da doğrulanır. |
+| [**asterisk-gcp-iac**](https://github.com/ErenOzgu/asterisk-gcp-iac) | Google Cloud üzerinde sertleştirilmiş Asterisk santrali için Terraform ve Ansible: yalnızca IAP üzerinden SSH, nftables, fail2ban, Prometheus metrikleri. CI, Terraform planını kimlik bilgisi olmadan çıkarıp kurallara karşı denetler ve Ansible rollerini gerçek Ubuntu 22.04 ve 24.04'te iki kez uygular. |
 | [**D-etud**](https://github.com/ErenOzgu/D-etud) | Öğrencilerin öğretmenlere soru sorduğu eğitim platformu: React arayüzü, Node.js/MongoDB API'si, JWT ve Socket.IO. |
 
 ## Araçlar
@@ -39,6 +41,12 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
 ![Asterisk](https://img.shields.io/badge/Asterisk-F68F1E)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
+![Ansible](https://img.shields.io/badge/Ansible-EE0000?logo=ansible&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?logo=grafana&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?logo=googlecloud&logoColor=white)
 
 ## Şu an öğrendiklerim
 
