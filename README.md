@@ -19,7 +19,7 @@
 
 ## Projects
 
-Most of these are tested in CI against the real software (Asterisk, Ubuntu, Django, Wireshark) rather than mocks.
+Most of these are tested in CI against the real software (Asterisk, Ubuntu, systemd, nftables, Django, Wireshark) rather than mocks. The ones that involve an AI model put the deterministic part first: CI never needs an API key, and where a model writes text it is checked against the data and rejected if it breaks the facts.
 
 ### Voice and telecom
 
@@ -32,14 +32,36 @@ Most of these are tested in CI against the real software (Asterisk, Ubuntu, Djan
 | [**asterisk-conf-lint**](https://github.com/ErenOzgu/asterisk-conf-lint) | A security linter for Asterisk configuration files: open AMI, endpoints without passwords, weak secrets, toll-fraud dialplans. 25 rules, no dependencies, checked against real Asterisk 18 and 20. |
 | [**rtp-quality**](https://github.com/ErenOzgu/rtp-quality) | Jitter, packet loss and estimated MOS from pcap and pcapng captures of RTP, as text, JSON or Prometheus metrics. No dependencies; its numbers are checked against Wireshark and a real SIPp call. |
 
-### Linux, CI and modernization
+### Linux, networking and cloud
+
+| Project | Description |
+|---|---|
+| [**nft-assert**](https://github.com/ErenOzgu/nft-assert) | Loads an nftables ruleset into a lab of real network namespaces, sends real packets and asserts what is accepted, dropped or rejected. Flow matrix, ruleset diff and per-failure rule tracing; standard library only. |
+| [**systemd-harden**](https://github.com/ErenOzgu/systemd-harden) | Finds which systemd sandboxing directives a service survives: tries them one at a time on the running service, runs your health check and writes a drop-in with the ones that passed. Tested on real systemd 249 and 255, x86-64 and arm64. |
+| [**gcp-baseline**](https://github.com/ErenOzgu/gcp-baseline) | A Terraform module for a safe Google Cloud project start (budget alerts, audit log sink, org policies, identities) and an OPA policy that checks any plan and names the rule it breaks. CI plans it with the real Google provider, without credentials. |
+| [**ubuntu-hardening-roles**](https://github.com/ErenOzgu/ubuntu-hardening-roles) | Nine Ansible roles that harden Ubuntu 22.04 and 24.04, and a read-only audit script. CI converges real machines, checks that a second run changes nothing, then breaks things on purpose and expects the audit to notice. |
+| [**minimal-rootfs**](https://github.com/ErenOzgu/minimal-rootfs) | A bootable Ubuntu 22.04 or 24.04 root file system built with debootstrap (about 185 MB). CI boots it in QEMU and fails if it grows past a size budget. |
+
+### Testing and CI
+
+| Project | Description |
+|---|---|
+| [**serial-sim**](https://github.com/ErenOzgu/serial-sim) | Simulated serial devices on pseudo-terminals: Modbus RTU slaves, scripted consoles and line streams, with seeded fault injection and a transcript of every byte. Checked against pymodbus, mbpoll and pyserial. For testing software that talks to hardware, without the hardware. |
+| [**test-report-kit**](https://github.com/ErenOzgu/test-report-kit) | Merges JUnit XML from repeated test runs, finds the flaky tests, groups failures by signature and writes one Markdown, HTML or JSON report. A CI gate with an expiring allowlist. |
+| [**ci-failure-explainer**](https://github.com/ErenOzgu/ci-failure-explainer) | Explains why a GitHub Actions job failed: 57 rules, the log lines as evidence, and an optional model whose answer is checked against the log. |
+| [**django-upgrade-lab**](https://github.com/ErenOzgu/django-upgrade-lab) | A small Django 1.11 project upgraded to 5.2 one LTS at a time. The upgrade is the git history: every stage is a commit that CI installs and tests on the Python version it was meant for. |
+
+### AI-assisted tooling
 
 | Project | Description |
 |---|---|
 | [**legacy-modernizer-mcp**](https://github.com/ErenOzgu/legacy-modernizer-mcp) | An MCP server that scans legacy Python 2 / Django projects, ranks the findings and drafts a migration plan. 52 rules, read-only analysis, tested in CI. |
-| [**django-upgrade-lab**](https://github.com/ErenOzgu/django-upgrade-lab) | A small Django 1.11 project upgraded to 5.2 one LTS at a time. The upgrade is the git history: every stage is a commit that CI installs and tests on the Python version it was meant for. |
-| [**ubuntu-hardening-roles**](https://github.com/ErenOzgu/ubuntu-hardening-roles) | Nine Ansible roles that harden Ubuntu 22.04 and 24.04, and a read-only audit script. CI converges real machines, checks that a second run changes nothing, then breaks things on purpose and expects the audit to notice. |
-| [**minimal-rootfs**](https://github.com/ErenOzgu/minimal-rootfs) | A bootable Ubuntu 22.04 or 24.04 root file system built with debootstrap (about 185 MB). CI boots it in QEMU and fails if it grows past a size budget. |
+| [**linux-diag-mcp**](https://github.com/ErenOzgu/linux-diag-mcp) | A read-only MCP server for Linux diagnostics over stdio: load, memory, disks, processes, ports, services and the journal. Strict argument validation, capped and redacted output; tested against real systemd on Ubuntu 22.04 and 24.04. |
+| [**llm-redact**](https://github.com/ErenOzgu/llm-redact) | Masks IPs, hostnames, tokens, passwords and keys in logs and configs before they go to a model, then puts them back in the answer. No dependencies. |
+| [**plan-explainer**](https://github.com/ErenOzgu/plan-explainer) | Explains a Terraform or OpenTofu plan: what changes, what cannot be undone, what got opened up. 15 rules first; an optional model summary is rejected if it breaks the facts. |
+| [**incident-digest**](https://github.com/ErenOzgu/incident-digest) | Turns a pile of log lines into a short digest of what happened and when: templates mined with Drain, bursts, what is new, what went quiet. |
+| [**report-pipeline**](https://github.com/ErenOzgu/report-pipeline) | CSV in, report out: the numbers are computed deterministically, and an optional model-written summary is rejected if it contains a figure that is not in the data. |
+| [**prompt-regression**](https://github.com/ErenOzgu/prompt-regression) | Regression tests for prompts: deterministic checks, repeated runs and a baseline that fails the build when a pass rate drops. |
 
 ### Other
 
@@ -69,6 +91,7 @@ Most of these are tested in CI against the real software (Asterisk, Ubuntu, Djan
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?logo=prometheus&logoColor=white)
 ![Grafana](https://img.shields.io/badge/Grafana-F46800?logo=grafana&logoColor=white)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?logo=googlecloud&logoColor=white)
+![Open Policy Agent](https://img.shields.io/badge/Open_Policy_Agent-7D9199?logo=openpolicyagent&logoColor=white)
 
 ## Currently learning
 
