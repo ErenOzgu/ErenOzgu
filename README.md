@@ -38,6 +38,7 @@ Most of these are tested in CI against the real software (Asterisk, Ubuntu, syst
 |---|---|
 | [**nft-assert**](https://github.com/ErenOzgu/nft-assert) | Loads an nftables ruleset into a lab of real network namespaces, sends real packets and asserts what is accepted, dropped or rejected. Flow matrix, ruleset diff and per-failure rule tracing; standard library only. |
 | [**systemd-harden**](https://github.com/ErenOzgu/systemd-harden) | Finds which systemd sandboxing directives a service survives: tries them one at a time on the running service, runs your health check and writes a drop-in with the ones that passed. Tested on real systemd 249 and 255, x86-64 and arm64. |
+| [**k8s-rollout-lab**](https://github.com/ErenOzgu/k8s-rollout-lab) | A small service on Kubernetes and CI on a real kind cluster: under a steady load it rolls out a new version, ships a release that never becomes ready, drains a node and probes a NetworkPolicy, and counts the failed requests. A control without a readiness probe must lose requests. |
 | [**gcp-baseline**](https://github.com/ErenOzgu/gcp-baseline) | A Terraform module for a safe Google Cloud project start (budget alerts, audit log sink, org policies, identities) and an OPA policy that checks any plan and names the rule it breaks. CI plans it with the real Google provider, without credentials. |
 | [**ubuntu-hardening-roles**](https://github.com/ErenOzgu/ubuntu-hardening-roles) | Nine Ansible roles that harden Ubuntu 22.04 and 24.04, and a read-only audit script. CI converges real machines, checks that a second run changes nothing, then breaks things on purpose and expects the audit to notice. |
 | [**minimal-rootfs**](https://github.com/ErenOzgu/minimal-rootfs) | A bootable Ubuntu 22.04 or 24.04 root file system built with debootstrap (about 185 MB). CI boots it in QEMU and fails if it grows past a size budget. |
@@ -87,6 +88,7 @@ Most of these are tested in CI against the real software (Asterisk, Ubuntu, syst
 ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
 ![Ansible](https://img.shields.io/badge/Ansible-EE0000?logo=ansible&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?logo=kubernetes&logoColor=white)
 ![QEMU](https://img.shields.io/badge/QEMU-FF6600?logo=qemu&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?logo=prometheus&logoColor=white)
 ![Grafana](https://img.shields.io/badge/Grafana-F46800?logo=grafana&logoColor=white)
@@ -96,4 +98,5 @@ Most of these are tested in CI against the real software (Asterisk, Ubuntu, syst
 ## Currently learning
 
 - Google Cloud and cloud architecture
+- Kubernetes: rollouts, disruption budgets, network policies
 - AI-assisted automation and building tools with MCP
