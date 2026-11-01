@@ -21,6 +21,13 @@
 
 Most of these are tested in CI against the real software (Asterisk, Ubuntu, systemd, nftables, Django, Wireshark) rather than mocks. The ones that involve an AI model put the deterministic part first: CI never needs an API key, and where a model writes text it is checked against the data and rejected if it breaks the facts.
 
+### CI/CD and supply chain
+
+| Project | Description |
+|---|---|
+| [**secure-pipeline**](https://github.com/ErenOzgu/secure-pipeline) | A small Java 21 service and a GitHub Actions pipeline that checks dependencies (OSV-Scanner), code (SonarQube Community with the quality gate kept in the repo), the container image (Trivy) and the running service (OWASP ZAP baseline), and then feeds each check something wrong on purpose and requires it to fail. Actions are pinned by commit, images by digest, downloaded tools by checksum. A GitLab CI version is included; it is checked against GitLab's schema but has not been run on GitLab. |
+| [**fetchlist**](https://github.com/ErenOzgu/fetchlist) | Lists what a build downloads (images, actions, URLs, packages), says what is not pinned and what a mirror or firewall allowlist has to hold. Reads Dockerfiles, GitHub Actions and GitLab CI, Compose files, shell scripts, requirements files and `pom.xml`; no dependencies. Run on my other 24 repositories it found 247 unpinned downloads; 245 are now pinned. |
+
 ### Voice and telecom
 
 | Project | Description |
